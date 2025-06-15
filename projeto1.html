@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Gestão Acadêmica - ITECHSERTÃO</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #64748b;
+      --light: #f8fafc;
+      --dark: #0f172a;
+      --gray-light: #e2e8f0;
+      --transition: all 0.3s ease-in-out;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f7fa;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    .navbar {
+      background: white;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+      padding: 15px 30px;
+    }
+
+    .brand-logo {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--primary);
+    }
+
+    .brand-logo span {
+      font-weight: 400;
+      color: var(--secondary);
+    }
+
+    .nav-link {
+      color: var(--dark) !important;
+      font-weight: 500;
+      margin: 0 8px;
+      transition: var(--transition);
+      position: relative;
+      padding: 8px 12px !important;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--primary) !important;
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 12px;
+      right: 12px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 3px;
+    }
+
+    .btn-portfolio {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      padding: 6px 16px;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .btn-portfolio:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .hero-section {
+      background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(135deg, var(--primary), #7dd3fc);
+      border-radius: 50%;
+      opacity: 0.1;
+      z-index: 0;
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: var(--secondary);
+      margin-bottom: 30px;
+      max-width: 600px;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      margin-top: 25px;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .meta-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(37, 99, 235, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1.4rem;
+    }
+
+    .meta-text strong {
+      display: block;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .meta-text span {
+      color: var(--secondary);
+      font-size: 0.9rem;
+    }
+
+    .hero-image {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.25);
+      transform: perspective(1000px) rotateY(-5deg);
+      transition: var(--transition);
+      border: 1px solid rgba(37, 99, 235, 0.1);
+    }
+
+    .hero-image:hover {
+      transform: perspective(1000px) rotateY(0deg);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 50px;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .screens-section {
+      padding: 80px 0;
+      background: white;
+    }
+
+    .screen-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      transition: var(--transition);
+      margin-bottom: 30px;
+      border: 1px solid var(--gray-light);
+    }
+
+    .screen-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(37, 99, 235, 0.15);
+    }
+
+    .screen-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .screen-card-body {
+      padding: 20px;
+    }
+
+    .screen-card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+
+    .screen-card p {
+      color: var(--secondary);
+      font-size: 0.95rem;
+    }
+
+    .feature-section {
+      padding: 80px 0;
+      background: linear-gradient(to bottom, #f8fafc, #f1f5f9);
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 40px;
+      padding: 20px;
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+      transition: var(--transition);
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(37, 99, 235, 0.1);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(37, 99, 235, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-right: 20px;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .feature-content h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--dark);
+    }
+
+    .feature-content p {
+      color: var(--secondary);
+      margin-bottom: 0;
+    }
+
+    .ux-section {
+      padding: 80px 0;
+      background: white;
+    }
+
+    .ux-content {
+      padding-right: 40px;
+    }
+
+    .ux-content h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: var(--dark);
+    }
+
+    .ux-content p {
+      color: var(--secondary);
+      margin-bottom: 25px;
+      font-size: 1.1rem;
+    }
+
+    .ux-image {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+      border: 1px solid var(--gray-light);
+    }
+
+    .tech-section {
+      padding: 80px 0;
+      background: linear-gradient(to bottom, #f1f5f9, #e2e8f0);
+    }
+
+    .tech-badge {
+      display: inline-block;
+      padding: 10px 25px;
+      background: white;
+      border-radius: 50px;
+      margin: 0 10px 15px;
+      font-weight: 500;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: var(--transition);
+      border: 1px solid var(--gray-light);
+    }
+
+    .tech-badge:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.15);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .tech-icon {
+      font-size: 1.5rem;
+      margin-right: 10px;
+      color: var(--primary);
+    }
+
+    .cta-section {
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .cta-section p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      opacity: 0.9;
+    }
+
+    .btn-cta {
+      background: white;
+      color: var(--primary);
+      font-weight: 600;
+      padding: 14px 40px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      transition: var(--transition);
+      border: 2px solid white;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .btn-cta:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      background: transparent;
+      color: white;
+    }
+
+    .footer {
+      background: var(--dark);
+      color: white;
+      padding: 60px 0 30px;
+    }
+
+    .footer h5 {
+      font-weight: 600;
+      margin-bottom: 25px;
+      font-size: 1.3rem;
+    }
+
+    .footer ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer ul li a {
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer ul li a:hover {
+      color: white;
+      padding-left: 5px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .social-icon:hover {
+      background: var(--primary);
+      transform: translateY(-5px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 992px) {
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .ux-content h2 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar-nav {
+        margin-top: 20px;
+      }
+      
+      .nav-link {
+        margin: 5px 0;
+        padding: 10px 0 !important;
+      }
+      
+      .hero-section {
+        padding: 50px 0;
+      }
+      
+      .hero-content {
+        text-align: center;
+      }
+      
+      .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .project-meta {
+        justify-content: center;
+      }
+      
+      .ux-content {
+        padding-right: 0;
+        margin-bottom: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand brand-logo" href="#">ITECHSERTÃO <span>LOGO</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Início</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#sobre">Sobre</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#equipe">Equipe</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#metodologia">Metodologia</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#ferramentas">Ferramentas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html#portfolio">Portfólio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#contato">Contato</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 hero-content">
+          <h1>Sistema de Gestão Acadêmica</h1>
+          <p>Solução completa para gerenciamento de instituições de ensino, integrando matrículas, frequência, notas e comunicação entre alunos e professores.</p>
+          
+          <div class="project-meta">
+            <div class="meta-item">
+              <div class="meta-icon">
+                <i class="fas fa-calendar"></i>
+              </div>
+              <div class="meta-text">
+                <strong>Duração</strong>
+                <span>4 meses</span>
+              </div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-icon">
+                <i class="fas fa-layer-group"></i>
+              </div>
+              <div class="meta-text">
+                <strong>Categoria</strong>
+                <span>Sistemas Web</span>
+              </div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-icon">
+                <i class="fas fa-user-friends"></i>
+              </div>
+              <div class="meta-text">
+                <strong>Cliente</strong>
+                <span>Escola Modelo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2070&auto=format&fit=crop" alt="Dashboard do Sistema">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screens Section -->
+  <section class="screens-section">
+    <div class="container">
+      <h2 class="section-title">Telas do Sistema</h2>
+      
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="screen-card">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop" alt="Dashboard">
+            <div class="screen-card-body">
+              <h3>Dashboard Principal</h3>
+              <p>Visão geral com métricas de desempenho, calendário acadêmico e notificações importantes.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="screen-card">
+            <img src="https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?q=80&w=2070&auto=format&fit=crop" alt="Gestão de Alunos">
+            <div class="screen-card-body">
+              <h3>Gestão de Alunos</h3>
+              <p>Cadastro completo de alunos com histórico acadêmico, documentos e informações de contato.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="screen-card">
+            <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=2070&auto=format&fit=crop" alt="Lançamento de Notas">
+            <div class="screen-card-body">
+              <h3>Lançamento de Notas</h3>
+              <p>Interface simplificada para professores registrarem avaliações e acompanharem desempenho.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Section -->
+  <section class="feature-section">
+    <div class="container">
+      <h2 class="section-title">Principais Funcionalidades</h2>
+      
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <div class="feature-content">
+              <h3>Controle de Frequência</h3>
+              <p>Registro automático de presenças e faltas com relatórios detalhados por turma, disciplina e aluno.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="fas fa-book"></i>
+            </div>
+            <div class="feature-content">
+              <h3>Diário Eletrônico</h3>
+              <p>Planejamento de aulas, registro de conteúdos e acompanhamento do plano de ensino.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="feature-content">
+              <h3>Relatórios Analíticos</h3>
+              <p>Dashboard interativo com gráficos e indicadores de desempenho acadêmico e institucional.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="fas fa-comments"></i>
+            </div>
+            <div class="feature-content">
+              <h3>Comunicação Integrada</h3>
+              <p>Sistema de mensagens e notificações em tempo real entre professores, alunos e responsáveis.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <div class="feature-content">
+              <h3>Aplicativo Móvel</h3>
+              <p>Acesso completo através de aplicativo nativo para iOS e Android com funcionalidades essenciais.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <div class="feature-content">
+              <h3>Segurança de Dados</h3>
+              <p>Criptografia de ponta a ponta, backups automáticos e conformidade com LGPD.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UX Section -->
+  <section class="ux-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 ux-content">
+          <h2>Design Centrado no Usuário</h2>
+          <p>Nosso processo de design priorizou a experiência do usuário desde as primeiras etapas. Realizamos pesquisas com professores, coordenadores e alunos para entender suas necessidades e desafios no dia a dia acadêmico.</p>
+          <p>O sistema foi projetado com foco na redução de etapas para tarefas frequentes, como lançamento de notas e registro de frequência. A interface limpa e intuitiva permite que novos usuários se adaptem rapidamente.</p>
+          <p>Implementamos um sistema de feedback contínuo que nos permitiu iterar e melhorar o produto durante todo o desenvolvimento.</p>
+        </div>
+        <div class="col-lg-6">
+          <div class="ux-image">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="Processo de UX Design">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Section -->
+  <section class="tech-section">
+    <div class="container text-center">
+      <h2 class="section-title">Tecnologias Utilizadas</h2>
+      
+      <div class="mt-5">
+        <span class="tech-badge"><i class="fab fa-react tech-icon"></i> React</span>
+        <span class="tech-badge"><i class="fab fa-node-js tech-icon"></i> Node.js</span>
+        <span class="tech-badge"><i class="fas fa-database tech-icon"></i> MongoDB</span>
+        <span class="tech-badge"><i class="fab fa-aws tech-icon"></i> AWS</span>
+        <span class="tech-badge"><i class="fas fa-server tech-icon"></i> Express</span>
+        <span class="tech-badge"><i class="fab fa-figma tech-icon"></i> Figma</span>
+        <span class="tech-badge"><i class="fas fa-mobile-alt tech-icon"></i> React Native</span>
+        <span class="tech-badge"><i class="fas fa-shield-alt tech-icon"></i> JWT Auth</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Gostou do nosso trabalho?</h2>
+      <p>Temos soluções personalizadas para otimizar os processos da sua instituição de ensino.</p>
+      <a href="index.html#contato" class="btn btn-cta">Solicitar Orçamento</a>
+    </div>
+  </section>
+
+  <footer class="py-4 border-0" style="background: #757c80;">
+        <div class="container">
+            <div class="row align-items-center mb-3">
+                <div class="col-md-6 text-md-start text-center mb-3 mb-md-0">
+                    <span class="fw-bold text-white" style="font-size:1.2rem;">
+                        <i class="bi bi-envelope-paper" style="font-size:1.5rem; vertical-align:middle;"></i>
+                        ITechSertão <span style="font-size:0.9rem; font-weight:400;">logo</span>
+                    </span>
+                </div>
+                <div class="col-md-6 text-md-end text-center">
+                    <nav class="d-inline-block">
+                        <a href="index.html#inicio" class="text-white text-decoration-none mx-2">Início</a>
+                        <a href="index.html#sobre" class="text-white text-decoration-none mx-2">Sobre</a>
+                        <a href="index.html#equipe" class="text-white text-decoration-none mx-2">Equipe</a>
+                        <a href="index.html#metodologias" class="text-white text-decoration-none mx-2">Metodologia</a>
+                        <a href="index.html#ferramentas" class="text-white text-decoration-none mx-2">Ferramentas</a>
+                        <a href="index.html#portifolio" class="text-white text-decoration-none mx-2">Portfólio</a>
+                        <a href="index.html#contato" class="text-white text-decoration-none mx-2">Contato</a>
+                    </nav>
+                </div>
+            </div>
+            <hr class="my-2" style="border-color: #b0b4b7;">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-md-start text-center mb-2 mb-md-0">
+                    <small class="text-white-50">iTechSertão © 2025. Todos direitos reservados.</small>
+                </div>
+                <div class="col-md-6 text-md-end text-center">
+                    <a href="#" class="text-white-50 text-decoration-none me-3"><i class="bi bi-youtube"></i></a>
+                    <a href="#" class="text-white-50 text-decoration-none me-3"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-white-50 text-decoration-none me-3"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-white-50 text-decoration-none me-3"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-white-50 text-decoration-none"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+            <script src="src/js/Formulario.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
