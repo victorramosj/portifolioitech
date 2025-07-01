@@ -1,12 +1,23 @@
 :root {
-  /* Cores principais */
-  --primary-color: #ff7f30;
-  --secondary-color: #ff9b04;
+  /* Cores principais (existentes) */
+  --primary-color: #ff7f30; /* Laranja vibrante */
+  --secondary-color: #ff9b04; /* Laranja mais amarelado */
+
+  /* Adicionando as cores da tríade */
+  --triad-blue: #007bff; /* Um azul vibrante, comum e com bom contraste */
+  /* Alternativa de azul mais próximo do ciano na tríade com laranja e verde limão: #00bfff (DeepSkyBlue) ou #00aaff */
+  --triad-green: #28a745; /* Um verde vibrante, comum e com bom contraste */
+  /* Alternativa de verde mais limão/amarelado na tríade com laranja e azul: #7CFC00 (LawnGreen) ou #8BC34A */
+
   --background-color: #f8f9fa;
   --card-background: #ffffff;
-  --text-dark: #2c3e50;
+  --text-dark: #303030; /* Seu tom de cinza escuro existente */
   --text-medium: #495057;
   --text-light: #6c757d;
+
+  /* Nova variável para um cinza muito escuro/quase preto, ideal para fundos (mantida para rodapé/CTA) */
+  --dark-background-color: #1a1a1a;
+  --dark-text-color: #f0f0f0;
 
   /* Elementos específicos */
   --header-border: #ec6613;
@@ -25,22 +36,22 @@
   --focus-shadow: rgba(13, 110, 253, 0.15);
   --invalid-border: #dc3545;
 
-  /* Variáveis para o footer */
-  --footer-bg: #ff9a16;
-  --footer-text: #ffffff;
-  --footer-link: #ffffff;
-  --footer-link-hover: #e9ecef;
-  --footer-divider: #b3b3b3;
-  --footer-secondary-text: rgba(255, 255, 255, 0.7);
+  /* Nova paleta do rodapé usando tríade harmonizada */
+  --footer-bg: #152038;                 /* Azul muito escuro (base) */
+  --footer-text: #e6e9f0;               /* Cinza claro azulado (90% branco) */
+  --footer-heading: var(--primary-color);/* Laranja vibrante para títulos */
+  --footer-link: #6ec1ff;                /* Azul claro (variante de --triad-blue) */
+  --footer-link-hover: #e6e9f0;/* Verde limão no hover */
+  --footer-icon: #8bc34a;                /* Verde limão suavizado */
+  --footer-divider: rgba(255, 159, 28, 0.2); /* Laranja translúcido */
+  --footer-secondary-text: #a0a9b8;      /* Cinza azulado médio */
 
   /* Cores específicas das redes sociais */
   --youtube-color: #FF0000;
   --facebook-color: #1877F2;
   --twitter-color: #1DA1F2;
   --instagram-color: #E1306C;
-  --linkedin-color: #0A66C2;
-
-
+  --linkedin-color: #6f8091;
 }
 
 .btn-primary {
@@ -609,11 +620,20 @@ textarea.form-control {
   background-color: var(--footer-bg) !important;
   padding: 2rem 0;
 }
+.site-footer nav a {
+  margin: 0 0.75rem; /* espaçamento lateral aumentado */
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
 
-.site-footer,
-.site-footer .text-white,
-.site-footer .text-white-50 {
-  color: var(--footer-text) !important;
+
+/* Cores alternadas usando nth-child */
+.site-footer nav a{
+
+  color: white !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+
 }
 
 .site-footer a {
