@@ -1,7 +1,7 @@
 :root {
   /* Cores principais */
   --primary-color: #ff7f30;
-  --secondary-color: #ffaf47;
+  --secondary-color: #ff9b04;
   --background-color: #f8f9fa;
   --card-background: #ffffff;
   --text-dark: #2c3e50;
@@ -26,7 +26,7 @@
   --invalid-border: #dc3545;
 
   /* Variáveis para o footer */
-  --footer-bg: #4b4b4b;
+  --footer-bg: #ff9a16;
   --footer-text: #ffffff;
   --footer-link: #ffffff;
   --footer-link-hover: #e9ecef;
@@ -112,14 +112,29 @@ body {
 .scrum-header {
   text-align: center;
   margin-bottom: 40px;
-  padding-bottom: 20px;
-  border-bottom: 3px solid var(--header-border);
+  padding-bottom: 20px;  
+
 }
+
+
+
 
 .scrum-header h2 {
   font-weight: 700;
   color: var(--text-dark);
   margin-bottom: 15px;
+}
+
+.scrum-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--header-border);
+  border-radius: 2px;
 }
 
 .scrum-header p {
@@ -249,7 +264,7 @@ body {
 
 header {
   background-color: #f0f2f5;
-  padding: 2rem 0;
+  padding: 10rem 0;
 }
 
 .navbar {
