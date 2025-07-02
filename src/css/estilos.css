@@ -111,6 +111,17 @@ body {
   color: var(--primary-color) !important;
 }
 
+.section-title:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 3px;
+}
+
 .scrum-section {
   max-width: 1200px;
   margin: 0 auto;
