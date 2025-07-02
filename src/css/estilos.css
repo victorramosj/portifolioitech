@@ -14,8 +14,8 @@
 
   /* Elementos específicos */
   --header-border: #ec6613;
-  --card-shadow:rgba(31, 98, 50, 0.9);
-  --hover-shadow: rgba(31, 98, 50, 0.9);
+  --card-shadow:rgba(9, 49, 20, 0.9);
+  --hover-shadow: rgba(10, 44, 20, 0.9);
   --contact-bg: #f8f9fa;
   --contact-icon-bg: #e9ecef;
 
@@ -30,14 +30,14 @@
   --invalid-border: #dc3545;
 
   /* Nova paleta do rodapé usando tríade harmonizada */
-  --footer-bg: #152038;                 /* Azul muito escuro (base) */
-  --footer-text: #e6e9f0;               /* Cinza claro azulado (90% branco) */
-  --footer-heading: var(--primary-color);/* Laranja vibrante para títulos */
-  --footer-link: #6ec1ff;                /* Azul claro (variante de --triad-blue) */
-  --footer-link-hover: #e6e9f0;/* Verde limão no hover */
-  --footer-icon: #8bc34a;                /* Verde limão suavizado */
-  --footer-divider: rgba(255, 159, 28, 0.2); /* Laranja translúcido */
-  --footer-secondary-text: #a0a9b8;      /* Cinza azulado médio */
+  --footer-bg: #ff9b04;                 
+  --footer-text: #e6e9f0;             
+  --footer-heading: var(--primary-color);
+  --footer-link: #00014d;               
+  --footer-link-hover: #e6e9f0;
+  --footer-icon: #8bc34a;                
+  --footer-divider: rgba(255, 159, 28, 0.2); 
+  --footer-secondary-text: #a0a9b8;     
 
   /* Cores específicas das redes sociais */
   --youtube-color: #FF0000;
