@@ -2,7 +2,7 @@
   /* Cores principais */
   --primary-color: #ff7f30;
   --secondary-color: #ff9b04;
-  --background-color: #f8f9fa;
+  --background-color:	#F8F8FF; /* Alteração de cor */
   --card-background: #ffffff;
   --text-dark: #2c3e50;
   --text-medium: #495057;
@@ -10,15 +10,15 @@
 
   /* Elementos específicos */
   --header-border: #ec6613;
-  --card-shadow: rgba(0, 0, 0, 0.08);
-  --hover-shadow: rgba(0, 0, 0, 0.15);
+  --card-shadow:rgba(31, 98, 50, 0.9);
+  --hover-shadow: rgba(31, 98, 50, 0.9);
   --contact-bg: #f8f9fa;
   --contact-icon-bg: #e9ecef;
 
   /* Portfólio */
   --portfolio-bg: #dde1e6;
   --tool-card-bg: #e0e0e0;
-  --tool-card-active: #bdbdbd;
+  --tool-card-active: 	#A020F0;
 
   /* Formulário */
   --focus-border: #86b7fe;
@@ -43,10 +43,16 @@
 
 }
 
+header {
+  background:	#ff8c00c2 !important;
+  border-radius: 4px;
+}
+
+
 .btn-primary {
   background-color: var(--primary-color) !important;
   border-color: var(--primary-color) !important;
-  color: #fff !important;
+  color: #ffffff !important;
   transition: background 0.2s, border 0.2s, color 0.2s;
 }
 
@@ -117,8 +123,6 @@ body {
 }
 
 
-
-
 .scrum-header h2 {
   font-weight: 700;
   color: var(--text-dark);
@@ -127,8 +131,7 @@ body {
 
 .scrum-header h2::after {
   content: '';
-  position: absolute;
-  bottom: -30px;
+  bottom: -30px; /* Retirei o position absolute */
   left: 50%;
   transform: translateX(-50%);
   width: 80px;
@@ -273,6 +276,8 @@ header {
 
 section {
   padding: 2rem 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+ 
 }
 
 .section-title {
@@ -295,13 +300,12 @@ section {
 .contact-card {
   background: var(--card-background);
   border-radius: 8px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   transition: all 0.3s ease;
 }
 
 .contact-card:hover {
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 12px 25px var(--hover-shadow);
 }
 
 .contact-info {
@@ -519,6 +523,8 @@ textarea.form-control {
   background: var(--portfolio-bg);
   border-radius: 8px;
   min-height: 200px;
+  margin-left: 8px;
+  margin-right: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -547,6 +553,8 @@ textarea.form-control {
   position: absolute;
   left: 0;
   right: 0;
+  margin-left: 8px;
+  margin-right: 8px;
   bottom: 16px;
   text-align: center;
   font-size: 1.1rem;
