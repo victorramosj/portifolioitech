@@ -110,16 +110,6 @@ body {
   color: var(--primary-color) !important;
 }
 
-.section-title:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 60px;
-  height: 3px;
-  background-color: var(--primary-color);
-  border-radius: 3px;
-}
 
 .scrum-section {
   max-width: 1200px;
@@ -134,7 +124,7 @@ body {
   text-align: center;
   margin-bottom: 40px;
   padding-bottom: 20px;  
-
+  
 }
 
 
@@ -142,17 +132,6 @@ body {
   font-weight: 700;
   color: var(--text-dark);
   margin-bottom: 15px;
-}
-
-.scrum-header h2::after {
-  content: '';
-  bottom: -30px; /* Retirei o position absolute */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: var(--header-border);
-  border-radius: 2px;
 }
 
 .scrum-header p {
@@ -320,7 +299,7 @@ section {
 }
 
 .contact-card:hover {
-    box-shadow: 0 12px 25px var(--hover-shadow);
+    box-shadow: 0 8px 15px var(--hover-shadow);
 }
 
 .contact-info {
@@ -511,7 +490,7 @@ textarea.form-control {
 
 .tool-card.active,
 .tool-card:hover {
-  background: var(--tool-card-active);
+  border: 1px solid var(--primary-color);  
   color: var(--text-dark);
   transform: translateY(-8px) scale(1.04);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
