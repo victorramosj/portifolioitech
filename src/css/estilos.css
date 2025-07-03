@@ -46,6 +46,15 @@
   --linkedin-color: #6f8091;
 }
 
+section[id] {
+  scroll-margin-top: 80px; 
+                          
+}
+
+
+#inicio {
+  scroll-margin-top: 0;
+}
 header {
   background:	#ff8c00c2 !important;
   border-radius: 4px;
