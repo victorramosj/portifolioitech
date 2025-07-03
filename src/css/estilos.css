@@ -1,7 +1,7 @@
 :root {
   /* Cores principais */
   --primary-color: #ff7f30;
-  --secondary-color: #ff9b04;
+  --secondary-color: #ff8c00c2;
   --background-color:	#F8F8FF; /* Alteração de cor */
   --card-background: #ffffff;
   --text-dark: #303030; /* Seu tom de cinza escuro existente */
@@ -14,30 +14,29 @@
 
   /* Elementos específicos */
   --header-border: #ec6613;
-  --card-shadow:rgba(9, 49, 20, 0.9);
-  --hover-shadow: rgba(10, 44, 20, 0.9);
+  --card-shadow:#5f3400c2;
+  --hover-shadow: #ff8c00c2;
   --contact-bg: #f8f9fa;
   --contact-icon-bg: #e9ecef;
 
   /* Portfólio */
   --portfolio-bg: #dde1e6;
   --tool-card-bg: #e0e0e0;
-  --tool-card-active: 	#A020F0;
+  --tool-card-active: 	#ff9b04;
 
   /* Formulário */
   --focus-border: #86b7fe;
   --focus-shadow: rgba(13, 110, 253, 0.15);
   --invalid-border: #dc3545;
 
-  /* Nova paleta do rodapé usando tríade harmonizada */
-  --footer-bg: #ff9b04;                 
-  --footer-text: #e6e9f0;             
-  --footer-heading: var(--primary-color);
-  --footer-link: #00014d;               
-  --footer-link-hover: #e6e9f0;
-  --footer-icon: #8bc34a;                
-  --footer-divider: rgba(255, 159, 28, 0.2); 
-  --footer-secondary-text: #ffffff;     
+  
+   --footer-bg: #ff8c00c2;          /* Vinho escuro */
+--footer-text: #E8CBB6;         /* Bege rosado */
+--footer-heading: #F18F01;      /* Laranja âmbar */
+--footer-link: #E8CBB6;         /* Bege */
+--footer-link-hover: #683e00;   /* Laranja */
+--footer-icon: #99B898;         /* Verde menta */
+--footer-divider: #002508;      /* Marrom avermelhado */
 
   /* Cores específicas das redes sociais */
   --youtube-color: #FF0000;
@@ -122,9 +121,21 @@ body {
 
 .scrum-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   padding-bottom: 20px;  
-  
+  position: relative;
+}
+
+.borda::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background-color: var(--primary-color);
+  border-radius: 2px;
 }
 
 
@@ -289,9 +300,7 @@ section {
   transition: all 0.3s ease;
 }
 
-.contact-card:hover {
-    box-shadow: 0 8px 15px var(--hover-shadow);
-}
+
 
 .contact-info {
   padding: 2rem;
@@ -599,27 +608,26 @@ textarea.form-control {
 
 /* Estilos para o footer */
 .site-footer {
-  background-color: var(--footer-bg) !important;
+  
+  background: var(--footer-gradient);  
+  background-color: var(--footer-bg); /* Use a cor inicial como fallback */
   padding: 2rem 0;
 }
+
 .site-footer nav a {
   margin: 0 0.75rem; /* espaçamento lateral aumentado */
   font-weight: 500;
-  transition: color 0.3s ease;
-}
+  transition: color 0.3s ease;}
 
 
-/* Cores alternadas usando nth-child */
-.site-footer nav a{
-
-  color: white !important;
+.site-footer nav a {
+  color: white !important; /* Cuidado com !important, ele dificulta a cascata */
   font-weight: 500;
   transition: color 0.3s ease;
-
 }
 
 .site-footer a {
-  color: var(--footer-link) !important;
+  color: var(--footer-link) !important; /* Cuidado com !important aqui também */
   text-decoration: none;
   transition: color 0.3s ease;
 }
