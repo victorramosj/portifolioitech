@@ -174,7 +174,7 @@ body {
 
 .scrum-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 12px 25px var(--hover-shadow);
+  box-shadow: 0 2px 2px var(--hover-shadow);
 }
 
 .step-number {
